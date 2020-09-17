@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>像素小鸟</title>
+		<style type="text/css">
+			#canvas{
+				margin: auto;
+				position: absolute;
+				margin: auto;
+				left: 0px;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+			}	
+		</style>
+	</head>
+	<body>
+		<p>回车开始游戏</p>
+		<p>空格向上跳跃</p>
+		
+		<script src="src/sky.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/land.js" type="text/javascript" charset="utf-8"></script>
+		<script src="src/pipe.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/bird.js" type="text/javascript" charset="utf-8"></script>
+		<script src="./src/manager.js" type="text/javascript" charset="utf-8"></script>
+		<canvas id="canvas" width="800" height="600" style="border: 1px solid red;"></canvas>
+		<script type="text/javascript">
+			window.onload = function() {
+				var m1 = new manager('canvas');
+				var flag = false
+				window.onkeydown = (e) => {
+					if (e.keyCode == 13) {
+						flag = !flag
+						if (flag) {
+							m1.play()
+						} else {
+							m1.stop()
+						}
+			
+					} else if (e.keyCode == 32) {
+						m1.Bird.jump()
+					} 
+				}
+			}
+		</script>
+	</body>
+</html>
